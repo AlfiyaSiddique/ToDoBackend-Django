@@ -12,7 +12,7 @@ SECRET_KEY = 'django-insecure-@cpujk_o4=h8x87^e13!5y80@wrfnvif61#+3-!e5f1(zn^$1r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".vercel.app", ".now.sh"]
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -116,11 +116,3 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ]
 }
-
-import os
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', "static")
