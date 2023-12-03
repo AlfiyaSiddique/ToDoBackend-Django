@@ -1,7 +1,14 @@
 from django.db import models
+from django.core.exceptions import ValidationError
+from datetime import date
 
 
 class Todo(models.Model):
+    def no_future(value):
+        today = date.today()
+        if value < today:
+            raise ValidationError('Due Date cannot be in the past.')
+
     Open = "Open"
     Working = "Working"
     Done = "Done"
@@ -16,7 +23,10 @@ class Todo(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     title = models.TextField(max_length=100)
     description = models.TextField(max_length=1000)
-    dueDate = models.DateField(blank=True, null=True)
+    dueDate = models.DateField(
+        blank=True, null=True,
+        validators=[no_future],
+    )
     tag = models.ManyToManyField("Tag", blank=True)
     status = models.CharField(
         max_length=7,
