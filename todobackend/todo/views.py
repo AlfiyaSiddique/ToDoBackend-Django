@@ -7,22 +7,22 @@ from .models import *
 # Create your views here.
 
 
-class CreateTodo(generics.CreateAPIView):
+class CreateTodo(generics.CreateAPIView):  # Create API for Todo Model
     serializer_class = TodoSerializer
     queryset = Todo.objects.all()
 
 
-class TodoViews(generics.ListAPIView):
+class TodoViews(generics.ListAPIView):  # Read API for Todo Model
     serializer_class = TodoSerializer
     queryset = Todo.objects.all()
 
 
-class UpdateTodo(generics.RetrieveUpdateAPIView):
+class UpdateTodo(generics.RetrieveUpdateAPIView):  # Update API for Todo Model
     serializer_class = TodoSerializer
     queryset = Todo.objects.all()
 
 
-class DeleteTodo(generics.DestroyAPIView):
+class DeleteTodo(generics.DestroyAPIView):  # Delete API for Todo Model
     serializer_class = TodoSerializer
     queryset = Todo.objects.all()
 
@@ -32,22 +32,22 @@ class DeleteTodo(generics.DestroyAPIView):
         return Response({'message': 'Object deleted successfully'}, status=200)
 
 
-class CreateTag(generics.CreateAPIView):
+class CreateTag(generics.CreateAPIView):  # Create API for Tag Model
     serializer_class = TagSerializer
     queryset = Tag.objects.all()
 
 
-class TagView(generics.ListAPIView):
+class TagView(generics.ListAPIView):  # Read API for Tag Model
     serializer_class = TagSerializer
     queryset = Tag.objects.all()
 
 
-class UpdateTag(generics.RetrieveUpdateAPIView):
+class UpdateTag(generics.RetrieveUpdateAPIView):  # Update API for Tag Model
     serializer_class = TagSerializer
     queryset = Tag.objects.all()
 
 
-class DeleteTag(generics.DestroyAPIView):
+class DeleteTag(generics.DestroyAPIView):  # Delete API for Tag Model
     serializer_class = TagSerializer
     queryset = Tag.objects.all()
 

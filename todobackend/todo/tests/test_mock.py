@@ -3,7 +3,7 @@ from unittest import mock
 from manage import main
 
 
-class TestDjangoImport(unittest.TestCase):
+class TestDjangoImport(unittest.TestCase):  # Test to check the response of app when a module not found
     @mock.patch('builtins.__import__', side_effect=ImportError("Django not installed"))
     def test_django_import_error(self, mock_import):
         with self.assertRaises(ImportError) as cm:

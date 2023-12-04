@@ -21,7 +21,6 @@ class AdminCSSTestCase(StaticLiveServerTestCase):
         urls_to_check = [self.live_server_url, f"{self.live_server_url}/admin/",
                          f"{self.live_server_url}/tag/"]
 
-
         for url in urls_to_check:
             self.selenium.get(url)
             try:

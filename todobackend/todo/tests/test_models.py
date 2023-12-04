@@ -6,9 +6,10 @@ from django.utils import timezone
 # models test
 
 
-class TestTag(TestCase):
+class TestTag(TestCase): # Test for Tag Model - Creation
 
-    def create_tag(self, name="TestTag1"):
+    @staticmethod
+    def create_tag(name="TestTag1"):
         return Tag.objects.create(name=name)
 
     def test_Tag_creation(self):
@@ -17,9 +18,10 @@ class TestTag(TestCase):
         self.assertEqual(str(w), w.name)
 
 
-class TestTodo(TestCase):
+class TestTodo(TestCase): # Test for Todo Model - Creation
 
-    def create_todo(self, title="Add a test for application", description="Test Application",
+    @staticmethod
+    def create_todo(title="Add a test for application", description="Test Application",
                     due_date="2023-12-06", tag="Learning", status="OPEN"):
         todo = Todo.objects.create(title=title, description=description, dueDate=due_date,
                                    status=status, timestamp=timezone.now())

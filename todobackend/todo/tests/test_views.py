@@ -6,7 +6,7 @@ from rest_framework import status
 from todo.models import *
 
 
-class DeleteTodoViewTest(TestCase):
+class DeleteTodoViewTest(TestCase):   # Test for Todo View - Deletion
 
     def setUp(self):
         self.user = User.objects.create_user(username='Alfiya', password='Alfiya@1708', is_staff=True)
@@ -24,7 +24,7 @@ class DeleteTodoViewTest(TestCase):
         self.assertEqual(response.data, {'message': 'Object deleted successfully'})
 
 
-class DeleteTagViewTest(TestCase):
+class DeleteTagViewTest(TestCase):   # Test for Tag View - Deletion
 
     def setUp(self):
         self.user = User.objects.create_user(username='Alfiya', password='Alfiya@1708', is_staff=True)
