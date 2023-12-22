@@ -24,9 +24,7 @@ jobs:
 
       - name: Run Unit Test
         run: |
-          cd todobackend/
           python manage.py test todo.tests
-        working-directory: = todobackend/
 
       - name: Run Integration Tests
         run: |
@@ -53,7 +51,7 @@ jobs:
         run: |
           flake8 --exclude=./todobackend/todo/migrations/*,./todobackend/todobackend/settings.py, .
 
-      - name: Run Black
+      - name: Run Black with exclusion
         run: |
           black --check --exclude=./todobackend/todo/migrations/*,
           ./todobackend/todobackend/settings.py,./todobackend/todobackend/wsgi.py .
