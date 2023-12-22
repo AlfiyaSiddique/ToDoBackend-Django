@@ -20,7 +20,7 @@ class AdminCSSTestCase(StaticLiveServerTestCase):
     def test_site_load_or_crash(self):
         urls_to_check = [self.live_server_url,
                          f"{self.live_server_url}/admin/",
-                         f"{self.live_server_url}/tag/"]
+                         f"{self.live_server_url}/api/tag/"]
 
         for url in urls_to_check:
             self.selenium.get(url)
