@@ -24,7 +24,9 @@ jobs:
 
       - name: Run Unit Test
         run: |
+          cd ToDoBackend-Django/todobackend/
           python manage.py test todo.tests
+        working-directory: ToDoBackend-Django/todobackend/
 
       - name: Run Integration Tests
         run: |
@@ -53,4 +55,5 @@ jobs:
 
       - name: Run Black
         run: |
-          black --check .
+          black --check --exclude ./todobackend/todo/migrations/* --exclude 
+          ./todobackend/todobackend/settings.py --exclude ./todobackend/todobackend/wsgi.py.
