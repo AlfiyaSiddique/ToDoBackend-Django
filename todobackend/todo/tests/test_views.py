@@ -32,7 +32,9 @@ class DeleteTodoViewTest(TestCase):   # Test for Todo View - Deletion
 class DeleteTagViewTest(TestCase):   # Test for Tag View - Deletion
 
     def setUp(self):
-        self.user = User.objects.create_user(username='Alfiya', password='Alfiya@1708', is_staff=True)
+        self.user = User.objects.create_user(
+            username='Alfiya', password='Alfiya@1708', is_staff=True
+        )
         self.user.save()
         self.client = APIClient()
         self.client.force_authenticate(self.user)
