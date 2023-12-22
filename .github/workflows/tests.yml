@@ -25,7 +25,11 @@ jobs:
 
       - name: Change Directory
         run: |
-          cd todobackend
+          cd todobackend/
+
+      - name: Check Files
+        run: |
+          ls
 
       - name: Run Unit Test
         run: |
