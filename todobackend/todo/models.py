@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 from datetime import date
 
 
-class Todo(models.Model): # Todo Model
+class Todo(models.Model):   # Todo Model
 
     def no_future(value):
         today = date.today()
@@ -39,9 +39,8 @@ class Todo(models.Model): # Todo Model
         return self.title
 
 
-class Tag(models.Model): #Tag Model
+class Tag(models.Model):  # Tag Model
     name = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
         return self.name
-

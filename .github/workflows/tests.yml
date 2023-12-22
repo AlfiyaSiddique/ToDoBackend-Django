@@ -20,7 +20,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install -m requirement.txt
+          pip install -m requirements.txt
 
       - name: Run Unit Test
         run: |
@@ -47,9 +47,9 @@ jobs:
         run: |
           pip install flake8 black  
 
-      - name: Run Flake8
+      - name: Run Flake8 with exclusion
         run: |
-          flake8  
+          flake8 --exclude=./todobackend/todo/migrations/*,./todobackend/todobackend/settings.py, .
 
       - name: Run Black
         run: |

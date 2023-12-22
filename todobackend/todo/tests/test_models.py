@@ -1,12 +1,12 @@
 from django.test import TestCase
-from todo.models import *
+from todo.models import Todo, Tag
 from django.utils import timezone
 
 
 # models test
 
 
-class TestTag(TestCase): # Test for Tag Model - Creation
+class TestTag(TestCase):  # Test for Tag Model - Creation
 
     @staticmethod
     def create_tag(name="TestTag1"):
@@ -18,12 +18,15 @@ class TestTag(TestCase): # Test for Tag Model - Creation
         self.assertEqual(str(w), w.name)
 
 
-class TestTodo(TestCase): # Test for Todo Model - Creation
+class TestTodo(TestCase):  # Test for Todo Model - Creation
 
     @staticmethod
-    def create_todo(title="Add a test for application", description="Test Application",
-                    due_date="2023-12-06", tag="Learning", status="OPEN"):
-        todo = Todo.objects.create(title=title, description=description, dueDate=due_date,
+    def create_todo(title="Add a test for application",
+                    description="Test Application",
+                    due_date="2023-12-06",
+                    tag="Learning", status="OPEN"):
+        todo = Todo.objects.create(title=title,
+                                   description=description, dueDate=due_date,
                                    status=status, timestamp=timezone.now())
 
         try:

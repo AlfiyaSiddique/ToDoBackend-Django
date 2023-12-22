@@ -23,4 +23,3 @@ class TagAdmin(admin.ModelAdmin):
 
 admin.site.register(Todo, TodoAdmin)
 admin.site.register(Tag, TagAdmin)
-
