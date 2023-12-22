@@ -4,13 +4,14 @@ from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 class AdminCSSTestCase(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.selenium = webdriver.Chrome()  # Use the appropriate webdriver
+        cls.selenium = webdriver.Chrome(ChromeDriverManager().install())
 
     @classmethod
     def tearDownClass(cls):
