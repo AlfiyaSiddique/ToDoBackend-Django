@@ -27,8 +27,8 @@ jobs:
           python manage.py test todo.tests
 
       - name: Run Integration Tests
-          run: |
-            python manage.py test todo.testIntegration
+        run: |
+          python manage.py test todo.testIntegration
 
   lint:
     name: Linting
