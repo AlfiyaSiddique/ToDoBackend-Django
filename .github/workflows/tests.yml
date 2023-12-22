@@ -24,7 +24,7 @@ jobs:
 
       - name: Run Unit Test
         run: |
-          python manage.py test todo.tests
+          python /usr/bin/manage.py test todo.tests
 
       - name: Run Integration Tests
         run: |
