@@ -23,11 +23,8 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Change Directory
-        run: |
-          cd todobackend/
-
       - name: Check Files
+        working-directory: ./todobackend/
         run: |
           ls
 
