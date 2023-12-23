@@ -1,5 +1,4 @@
 import time
-
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.common import NoSuchElementException
@@ -31,5 +30,3 @@ class AdminCSSTestCase(StaticLiveServerTestCase):
                 body_element = None
             self.assertIsNotNone(body_element,
                                  f"Site crashed or failed to load at {url}")
-
-            time.sleep(20)
