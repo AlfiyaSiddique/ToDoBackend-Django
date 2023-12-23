@@ -40,7 +40,7 @@ jobs:
         working-directory: ./todobackend/todo/testIntegration
         run: |
           ls
-          chmod +x ./chromedriver
+          chmod +x chromedriver.exe
           google-chrome --headless 
 
       - name: Run Integration Tests
