@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, status
 from rest_framework.response import Response
 from .serializers import TodoSerializer, TagSerializer
 from .models import Todo, Tag
@@ -6,9 +6,16 @@ from .models import Todo, Tag
 # Create your views here.
 
 
-class CreateTodo(generics.CreateAPIView):  # Create API for Todo Model
+class CreateTodo(generics.CreateAPIView):
     serializer_class = TodoSerializer
     queryset = Todo.objects.all()
+
+    def perform_create(self, serializer):
+        tag_names = self.request.data.get('tag_names', [])
+        todo = serializer.save()
+        tags = serializer.get_or_create_tags(tag_names)
+        print(tags)
+        todo.tag.set(tags)
 
 
 class TodoViews(generics.ListAPIView):  # Read API for Todo Model
@@ -19,6 +26,11 @@ class TodoViews(generics.ListAPIView):  # Read API for Todo Model
 class UpdateTodo(generics.RetrieveUpdateAPIView):  # Update API for Todo Model
     serializer_class = TodoSerializer
     queryset = Todo.objects.all()
+
+    def perform_update(self, serializer):
+        tag_names = self.request.data.get('tag_names', [])
+        todo = serializer.save()
+        todo.tag.set(serializer.get_or_create_tags(tag_names))
 
 
 class DeleteTodo(generics.DestroyAPIView):  # Delete API for Todo Model
