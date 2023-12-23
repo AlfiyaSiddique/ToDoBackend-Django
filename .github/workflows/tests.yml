@@ -71,5 +71,4 @@ jobs:
 
       - name: Run Black with exclusion
         run: |
-          black --check --exclude=./todobackend/todo/migrations/*,
-          ./todobackend/todobackend/settings.py,./todobackend/todobackend/wsgi.py .
+          black --check --verbose --exclude=./todobackend/todo/migrations/* .
