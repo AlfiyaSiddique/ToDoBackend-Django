@@ -31,10 +31,16 @@ jobs:
       - name: Set Up Chrome
         uses: browser-actions/setup-chrome@v1
         with:
-          chrome-version: 120.0.6099.130
+          chrome-version: latest
 
       - name: Check Chrome Version
         run: google-chrome --version
+
+      - name: Run Chrome in GitHub Actions
+        working-directory: ./todobackend/todo/testIntegration
+        run: |
+          chmod +x ./chromedriver
+          google-chrome --headless 
 
       - name: Run Integration Tests
         working-directory: ./todobackend/
