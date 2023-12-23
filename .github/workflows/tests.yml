@@ -32,6 +32,9 @@ jobs:
         run: google-chrome --version
 
       - name: Run Integration Tests
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: 130
         working-directory: ./todobackend/
         run: |
           python manage.py test todo.testIntegration
