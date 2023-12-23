@@ -39,6 +39,7 @@ jobs:
       - name: Run Chrome in GitHub Actions
         working-directory: ./todobackend/todo/testIntegration
         run: |
+          ls
           chmod +x ./chromedriver
           google-chrome --headless 
 
