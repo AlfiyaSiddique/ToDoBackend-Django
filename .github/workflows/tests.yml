@@ -44,6 +44,7 @@ jobs:
           google-chrome --headless 
 
       - name: Run Integration Tests
+        runs-on: browser-actions/setup-chrome@v1
         working-directory: ./todobackend/
         run: |
           python manage.py test todo.testIntegration
