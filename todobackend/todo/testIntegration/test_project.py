@@ -10,7 +10,6 @@ class AdminCSSTestCase(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.selenium = webdriver.Chrome()
         cls.chrome_options = Options()
         cls.chrome_options.add_argument("--headless")
         cls.chrome_options.add_argument("--no-sandbox")
