@@ -16,6 +16,7 @@ class AdminCSSTestCase(StaticLiveServerTestCase):
         cls.chrome_options.add_argument('--headless')
         cls.chrome_options.add_argument('--no-sandbox')
         cls.chrome_options.add_argument('--disable-dev-shm-usage')
+        cls.chrome_options.add_argument("--disable-gpu")
         cls.selenium = webdriver.Chrome(options=cls.chrome_options)
 
     @classmethod
