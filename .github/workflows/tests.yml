@@ -31,7 +31,7 @@ jobs:
       - name: Set Up Chrome
         uses: browser-actions/setup-chrome@v1
         with:
-          chrome-version: 130
+          chrome-version: latest
 
       - name: Check Chrome Version
         run: google-chrome --version
