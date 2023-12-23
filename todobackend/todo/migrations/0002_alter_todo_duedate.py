@@ -5,15 +5,16 @@ import todo.models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('todo', '0001_initial'),
+        ("todo", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='todo',
-            name='dueDate',
-            field=models.DateField(blank=True, null=True, validators=[todo.models.Todo.no_future]),
+            model_name="todo",
+            name="dueDate",
+            field=models.DateField(
+                blank=True, null=True, validators=[todo.models.Todo.no_future]
+            ),
         ),
     ]

@@ -7,7 +7,6 @@ from django.utils import timezone
 
 
 class TestTag(TestCase):  # Test for Tag Model - Creation
-
     @staticmethod
     def create_tag(name="TestTag1"):
         return Tag.objects.create(name=name)
@@ -19,15 +18,21 @@ class TestTag(TestCase):  # Test for Tag Model - Creation
 
 
 class TestTodo(TestCase):  # Test for Todo Model - Creation
-
     @staticmethod
-    def create_todo(title="Add a test for application",
-                    description="Test Application",
-                    due_date="2023-12-06",
-                    tag="Learning", status="OPEN"):
-        todo = Todo.objects.create(title=title,
-                                   description=description, dueDate=due_date,
-                                   status=status, timestamp=timezone.now())
+    def create_todo(
+        title="Add a test for application",
+        description="Test Application",
+        due_date="2023-12-06",
+        tag="Learning",
+        status="OPEN",
+    ):
+        todo = Todo.objects.create(
+            title=title,
+            description=description,
+            dueDate=due_date,
+            status=status,
+            timestamp=timezone.now(),
+        )
 
         try:
             tag_obj = Tag.objects.get(name=tag)

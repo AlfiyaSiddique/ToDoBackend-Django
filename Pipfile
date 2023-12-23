@@ -9,6 +9,7 @@ djangorestframework = "*"
 coverage = "*"
 selenium = "*"
 webdriver-manager = "*"
+black = "*"
 
 [dev-packages]
 

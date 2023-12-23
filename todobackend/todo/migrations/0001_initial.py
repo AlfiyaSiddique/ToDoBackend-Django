@@ -4,30 +4,56 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Tag',
+            name="Tag",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50, unique=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=50, unique=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Todo',
+            name="Todo",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('timestamp', models.DateTimeField(auto_now_add=True)),
-                ('title', models.TextField(max_length=100)),
-                ('description', models.TextField(max_length=1000)),
-                ('dueDate', models.DateField(blank=True, null=True)),
-                ('status', models.CharField(choices=[('Open', 'Open'), ('Working', 'Working'), ('Done', 'Done'), ('Overdue', 'Overdue')], default='Open', max_length=7)),
-                ('tag', models.ManyToManyField(blank=True, to='todo.tag')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("timestamp", models.DateTimeField(auto_now_add=True)),
+                ("title", models.TextField(max_length=100)),
+                ("description", models.TextField(max_length=1000)),
+                ("dueDate", models.DateField(blank=True, null=True)),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("Open", "Open"),
+                            ("Working", "Working"),
+                            ("Done", "Done"),
+                            ("Overdue", "Overdue"),
+                        ],
+                        default="Open",
+                        max_length=7,
+                    ),
+                ),
+                ("tag", models.ManyToManyField(blank=True, to="todo.tag")),
             ],
         ),
     ]

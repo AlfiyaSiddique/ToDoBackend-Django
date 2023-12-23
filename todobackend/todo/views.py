@@ -11,7 +11,7 @@ class CreateTodo(generics.CreateAPIView):
     queryset = Todo.objects.all()
 
     def perform_create(self, serializer):
-        tag_names = self.request.data.get('tag_names', [])
+        tag_names = self.request.data.get("tag_names", [])
         todo = serializer.save()
         tags = serializer.get_or_create_tags(tag_names)
         print(tags)
@@ -28,7 +28,7 @@ class UpdateTodo(generics.RetrieveUpdateAPIView):  # Update API for Todo Model
     queryset = Todo.objects.all()
 
     def perform_update(self, serializer):
-        tag_names = self.request.data.get('tag_names', [])
+        tag_names = self.request.data.get("tag_names", [])
         todo = serializer.save()
         todo.tag.set(serializer.get_or_create_tags(tag_names))
 
@@ -40,7 +40,7 @@ class DeleteTodo(generics.DestroyAPIView):  # Delete API for Todo Model
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
         self.perform_destroy(instance)
-        return Response({'message': 'Object deleted successfully'}, status=200)
+        return Response({"message": "Object deleted successfully"}, status=200)
 
 
 class CreateTag(generics.CreateAPIView):  # Create API for Tag Model
@@ -65,4 +65,4 @@ class DeleteTag(generics.DestroyAPIView):  # Delete API for Tag Model
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
         self.perform_destroy(instance)
-        return Response({'message': 'Tag deleted successfully'}, status=200)
+        return Response({"message": "Tag deleted successfully"}, status=200)

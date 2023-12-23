@@ -7,17 +7,24 @@ class TodoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Todo
-        fields = ('id', 'timestamp', 'title',
-                  'description', 'dueDate', 'tag_names', 'status')
+        fields = (
+            "id",
+            "timestamp",
+            "title",
+            "description",
+            "dueDate",
+            "tag_names",
+            "status",
+        )
 
     def create(self, validated_data):
-        tag_names = validated_data.pop('tag', [])
+        tag_names = validated_data.pop("tag", [])
         todo = Todo.objects.create(**validated_data)
         todo.tag.set(self.get_or_create_tags(tag_names))
         return todo
 
     def update(self, instance, validated_data):
-        tag_names = validated_data.pop('tag', [])
+        tag_names = validated_data.pop("tag", [])
         instance.tag.set(self.get_or_create_tags(tag_names))
         return super().update(instance, validated_data)
 
@@ -35,4 +42,4 @@ class TodoSerializer(serializers.ModelSerializer):
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        fields = ('name',)
+        fields = ("name",)
