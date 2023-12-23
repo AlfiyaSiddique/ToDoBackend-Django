@@ -10,7 +10,7 @@ class AdminCSSTestCase(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.selenium = webdriver.Chrome('./chromedriver')  # Use the appropriate webdriver
+        cls.selenium = webdriver.Chrome()
 
     @classmethod
     def tearDownClass(cls):
@@ -20,7 +20,8 @@ class AdminCSSTestCase(StaticLiveServerTestCase):
     def test_site_load_or_crash(self):
         urls_to_check = [self.live_server_url,
                          f"{self.live_server_url}/admin/",
-                         f"{self.live_server_url}/api/tag/"]
+                         f"{self.live_server_url}/api/tag/",
+                         f"{self.live_server_url}/api/todo/"]
 
         for url in urls_to_check:
             self.selenium.get(url)
@@ -31,4 +32,4 @@ class AdminCSSTestCase(StaticLiveServerTestCase):
             self.assertIsNotNone(body_element,
                                  f"Site crashed or failed to load at {url}")
 
-            time.sleep(30)
+            time.sleep(20)
