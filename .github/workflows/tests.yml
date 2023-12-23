@@ -28,6 +28,9 @@ jobs:
         run: |
           python manage.py test todo.tests
 
+      - name: Check Chrome Version
+        run: google-chrome --version
+
       - name: Run Integration Tests
         working-directory: ./todobackend/
         run: |
