@@ -7,7 +7,8 @@ class TodoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Todo
-        fields = ('id', 'timestamp', 'title', 'description', 'dueDate', 'tag_names', 'status')
+        fields = ('id', 'timestamp', 'title',
+                  'description', 'dueDate', 'tag_names', 'status')
 
     def create(self, validated_data):
         tag_names = validated_data.pop('tag', [])
@@ -26,7 +27,6 @@ class TodoSerializer(serializers.ModelSerializer):
             tag, _ = Tag.objects.get_or_create(name=name)
             tags.append(tag)
         return tags
-
 
     def get_tag_names(self, obj):
         return [tag.name for tag in obj.tag.all()]
