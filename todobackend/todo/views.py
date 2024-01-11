@@ -14,7 +14,6 @@ class CreateTodo(generics.CreateAPIView):
         tag_names = self.request.data.get("tag_names", [])
         todo = serializer.save()
         tags = serializer.get_or_create_tags(tag_names)
-        print(tags)
         todo.tag.set(tags)
 
 
